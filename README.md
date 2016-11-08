@@ -1,9 +1,9 @@
-# jquery.junks.js #
+# jquery.junky.js #
 * jquery의 유명한 플러그인들을 제외하고 쓸만한 내용만 모아서 사용할 수 있도록 인터넷에 떠도는 자료들을 모아둔 것.
 * 라이센스 따위 없음. 마음대로 쓰시고 좋은 의견은 남겨주시면 더 좋구요.  
 
 ## Install js file ##
-<div>1. jquery에 종속적인 내용만 다루므로 반드시 jquery 파일의 아래에 jquery.junks.js 파일을 위치시켜야 한다.</div>
+<div>1. jquery에 종속적인 내용만 다루므로 반드시 jquery 파일의 아래에 jquery.junky.js 파일을 위치시켜야 한다.</div>
 <br/>
 <div>2. 전역변수 $J는 사용자 선택에 따라 변경해서 사용하면 된다.</div>
 
