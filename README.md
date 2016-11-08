@@ -18,7 +18,7 @@
 	<tr>
 		<th style="vertical-align: middle;">Create</th>
 		<td>
-<pre>$.post(url, json, function(data){  
+<pre style="background-color: transparent; margin-bottom: 0;">$.post(url, json, function(data){  
 	console.log(data);  
 });</pre>
 		</td>
@@ -26,7 +26,7 @@
 	<tr>
 		<th style="vertical-align: middle;">Read</th>
 		<td>
-<pre>$.get(url, json, function(data){  
+<pre style="background-color: transparent; margin-bottom: 0;">$.get(url, json, function(data){  
 	console.log(data);  
 });</pre>
 		</td>
@@ -34,7 +34,7 @@
 	<tr>
 		<th style="vertical-align: middle;">Update</th>
 		<td>
-<pre>$.put(url, json, function(data){  
+<pre style="background-color: transparent; margin-bottom: 0;">$.put(url, json, function(data){  
 	console.log(data);  
 });</pre>
 		</td>
@@ -42,7 +42,7 @@
 	<tr>
 		<th style="vertical-align: middle;">Delete</th>
 		<td>
-<pre>$.delete(url, json, function(data){  
+<pre style="background-color: transparent; margin-bottom: 0;">$.delete(url, json, function(data){  
 	console.log(data);  
 });</pre>
 		</td>
