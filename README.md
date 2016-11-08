@@ -14,37 +14,30 @@
 * http(s)로 jquery를 이용해 REST API같이 사용하고자 할때 put, delete가 없어서 직접 $.ajax()를 이용하여 추가함.
 * 물론 서버에서 다음과 같이 처리할 준비가 되어 있어야 정상동작됨.
 
-<table>
-	<tr>
-		<th style="vertical-align: middle;">Create</th>
-		<td>
-<pre style="background-color: transparent; margin-bottom: 0;">$.post(url, json, function(data){  
+<pre>
+//Create
+$.post(url, json, function(data){  
 	console.log(data);  
-});</pre>
-		</td>
-	</tr>
-	<tr>
-		<th style="vertical-align: middle;">Read</th>
-		<td>
-<pre style="background-color: transparent; margin-bottom: 0;">$.get(url, json, function(data){  
+});
+</pre>
+
+<pre>
+//Read
+$.get(url, json, function(data){  
 	console.log(data);  
-});</pre>
-		</td>
-	</tr>
-	<tr>
-		<th style="vertical-align: middle;">Update</th>
-		<td>
-<pre style="background-color: transparent; margin-bottom: 0;">$.put(url, json, function(data){  
+});
+</pre>
+
+<pre>
+//Update
+$.update(url, json, function(data){  
 	console.log(data);  
-});</pre>
-		</td>
-	</tr>
-	<tr>
-		<th style="vertical-align: middle;">Delete</th>
-		<td>
-<pre style="background-color: transparent; margin-bottom: 0;">$.delete(url, json, function(data){  
+});
+</pre>
+
+<pre>
+//Delete
+$.delete(url, json, function(data){  
 	console.log(data);  
-});</pre>
-		</td>
-	</tr>
-</table>
+});
+</pre>
