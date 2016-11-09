@@ -5,7 +5,7 @@
 ## Install js file ##
 <div>1. jquery에 종속적인 내용만 다루므로 반드시 jquery 파일의 아래에 jquery.junky.js 파일을 위치시켜야 한다.</div>
 <br/>
-<div>2. 전역변수 $J는 사용자 선택에 따라 변경해서 사용하면 된다.</div>
+<div>2. 별도의 전역변수를 사용할 필요 없으며, 추가로 전역변수를 사용하고자 하는 경우엔 사용자 선택에 따라 변경해서 사용하면 된다.</div>
 
 ## Usage ##
 
@@ -29,15 +29,28 @@ $.get(url, json, function(data){
 </pre>
 
 <pre>
-//Update
+//Update added
 $.update(url, json, function(data){  
 	console.log(data);  
 });
 </pre>
 
 <pre>
-//Delete
+//Delete added
 $.delete(url, json, function(data){  
 	console.log(data);  
+});
+</pre>
+
+### 2. input/textarea/select가 readonly/disabled 일때 backspace에 의한 뒤로가기 막기 ###
+<pre>
+$(document).on("keydown", function(e){
+	if(e.keyCode === 8){ //backspace key
+		var $this = $(e.target);
+		var status = $this.attr("readonly") !== undefined || $this.attr("disabled") !== undefined;
+		if(["INPUT", "TEXTAREA", "SELECT"].indexOf($this.prop("tagName")) !== -1 && status){
+			return false;
+		}
+	}
 });
 </pre>
