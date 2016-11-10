@@ -1,5 +1,5 @@
 # jquery.junky.js #
-* jquery의 유명한 플러그인들을 제외하고 쓸만한 내용만 모아서 사용할 수 있도록 인터넷에 떠도는 자료들을 모아둔 것.
+* jquery의 유명한 플러그인들을 제외하고 쓸만한 내용만 모아서 사용할 수 있도록 정리함.
 * 라이센스 따위 없음. 마음대로 쓰시고 좋은 의견은 남겨주시면 더 좋구요.  
 
 ## Install js file ##
@@ -15,20 +15,6 @@
 * 물론 서버에서 다음과 같이 처리할 준비가 되어 있어야 정상동작됨.
 
 <pre>
-//Create
-$.post(url, json, function(data){  
-	console.log(data);  
-});
-</pre>
-
-<pre>
-//Read
-$.get(url, json, function(data){  
-	console.log(data);  
-});
-</pre>
-
-<pre>
 //Update added
 $.update(url, json, function(data){  
 	console.log(data);  
@@ -42,7 +28,9 @@ $.delete(url, json, function(data){
 });
 </pre>
 
-### 2. input/textarea/select가 readonly/disabled 일때 backspace에 의한 뒤로가기 막기 ###
+### 2. readonly/disabled일때 backspace 막기 ###
+* 아래 코드는 이미 적용되어 있는 코드로 input/textarea/select가 readonly/disabled 일때 backspace를 누르면 '뒤로 가기'가 되는 현상을 막기 위해 만들었다.
+* 사용을 위해 별도의 코드를 작성할 필요 없음!
 <pre>
 $(document).on("keydown", function(e){
 	if(e.keyCode === 8){ //backspace key
