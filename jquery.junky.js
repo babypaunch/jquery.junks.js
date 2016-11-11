@@ -28,3 +28,24 @@ $(document).on("keydown", function(e){
 		}
 	}
 });
+
+/*
+* 문자열의 첫 글자만 대문자로 변경한다.
+*/
+String.prototype.cap = function(){
+	return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+/*
+* 문자열에 3자리마다 comma를 추가한다.
+*/
+String.prototype.comma = function(){
+	return this.replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+}
+
+/*
+* 문자열에서 comma를 제거한다.
+*/
+String.prototype.strip = function(){
+	return this.replace(/[^\d]+/g, "");
+}

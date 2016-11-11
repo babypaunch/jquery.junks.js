@@ -42,3 +42,21 @@ $(document).on("keydown", function(e){
 	}
 });
 </pre>
+
+### 3. 첫 글자만 대문자로 바꾸기 ###
+<pre>
+	console.log("human".cap()); //Human
+	console.log("dino".cap()); //Dino
+</pre>
+
+### 4. 3자리마다 comma 추가하기 ###
+<pre>
+	var num = "1234567890";
+	console.log(num.comma()); //1,234,567,890
+</pre>
+
+### 5. comma 삭제하기 ###
+<pre>
+	var num = "1,234,567,890";
+	console.log(num.strip()); //1234567890
+</pre>
