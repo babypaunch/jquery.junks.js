@@ -49,3 +49,20 @@ String.prototype.comma = function(){
 String.prototype.strip = function(){
 	return this.replace(/[^\d]+/g, "");
 }
+
+/*
+* 만 나이 14세를 체크함.
+* 년월이 같아도 날짜가 지나지 않으면 만14세가 안되는 것으로 처리됨.
+* 만 14세 미만 true, 만 14세 이상 false
+*/
+String.prototype.isCriminalMinor = function(){
+	var year = Number(this.substr(0, 4));
+	var month = Number(this.substr(4, 2));
+	var date = Number(this.substr(6));
+	var now = new Date();
+	var yyyy = Number(now.getFullYear());
+	var mm = Number(now.getMonth() + 1);
+	var dd = Number(now.getDate())
+
+	return yyyy - year > 14 ? (yyyy - year === 14 ? (mm < month ? true : (mm === month ? (dd > date ? true : false) : false)) : false) : true;
+}
