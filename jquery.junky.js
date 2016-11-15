@@ -66,3 +66,19 @@ String.prototype.isCriminalMinor = function(){
 
 	return yyyy - year > 14 ? (yyyy - year === 14 ? (mm < month ? true : (mm === month ? (dd > date ? true : false) : false)) : false) : true;
 }
+
+/*
+* 문서 내에서 z-index가 가장 높은 값 + 1을 반환
+*/
+var maxIndex = function(){
+	var result = 0;
+
+	$("*").each(function(){
+		var zIndex = $(this).css("z-index") === "auto" ? 1 : parseInt($(this).css('z-index'));
+		if(zIndex > result){
+			result = zIndex;
+		}
+	});
+
+	return result + 1;
+}; //end: maxIndex: function(){
