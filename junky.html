@@ -27,28 +27,38 @@
 		.tab4x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
 		.tab5x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
 
+		h1 {text-align: center; padding: 10px 0 20px 0;}
+
 		.lastIndex {position: relative; float: left; width: 100px; height: 100px;}
 		.lastIndex:nth-child(odd) {background: silver;}
 		.lastIndex:nth-child(even) {background: gray;}
 	</style>
 </head>
 <body>
+	<h1 class="h1">jquery.junky.js - Sample</h1>
+
 	<div>
-		<div class="panel panel-default" style="height: 290px;">
+		<div class="panel panel-default" style="height: 450px;">
 			<div class="panel-heading">
 				Example 1. $J.lastIndex()
 			</div>
 			<div class="panel-body">
 				<div>
+<code>$(function(){</code>
+<code class="tab1x">$("#lastIndex").click(function(){</code>
+<code class="tab2x">alert($J.lastIndex());</code>
+<code class="tab1x">});</code>
+<code>})</code>
 				</div>
+				<br/>
 				<div>
 					<button type="button" id="lastIndex" class="btn btn-default">get lastIndex</button>
 				</div>
 				<div style="position: relative; top: 20px;">
-					<div class="lastIndex" style="background: red; position: fixed; z-index: 9999; left: 30px; top: 130px;">Z9999</div>
-					<div class="lastIndex" style="background: green; position: absolute; z-index: 500000; left: 0px; top: 40px;">Z500000</div>
-					<div class="lastIndex" style="background: blue; position: fixed; z-index: 100; left: 45px; top: 170px;">Z100</div>
-					<div class="lastIndex" style="background: orange; position: absolute; z-index: 1; left: 40px; top: 30px;">Z1</div>
+					<div class="lastIndex" style="background: red; position: absolute; z-index: 9999; left: 40px; top: 70px; color: white;">Z9999</div>
+					<div class="lastIndex" style="background: green; position: absolute; z-index: 500000; left: 60px; top: 90px; color: white;">Z500000</div>
+					<div class="lastIndex" style="background: blue; position: absolute; z-index: 100; left: 20px; top: 50px; color: white;">Z100</div>
+					<div class="lastIndex" style="background: orange; position: absolute; z-index: 1; left: 0px; top: 30px;">Z1</div>
 					<div class="lastIndex">nomal1</div>
 					<div class="lastIndex">nomal2</div>
 				</div>
@@ -59,11 +69,43 @@
 	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Example 2. $J.sort(arr, key, order)
+				Example 2. $.put(), $delete()
 			</div>
 			<div class="panel-body">
 				<div>
-					temp
+<code>$(function(){</code>
+<code class="tab1x">$.put(someUrl, {id: "test", "name": "someone"}, function(data){</code>
+<code class="tab2x">console.log(data);</code>
+<code class="tab1x">});</code>
+<code></code>
+<code class="tab1x">$.delete(someUrl, {id: "test", "name": "someone"}, function(data){</code>
+<code class="tab2x">console.log(data);</code>
+<code class="tab1x">});</code>
+<code>})</code>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Example 3. $J.sort(arr, key, order)
+			</div>
+			<div class="panel-body">
+				<div>
+<code>var arr = [</code>
+<code class="tab1x">{age: 30, name: "jordan"}</code>
+<code class="tab1x">, {age: 10, name: "bob"}</code>
+<code class="tab1x">, {age: 25, name: "alice"}</code>
+<code class="tab1x">, {age: 13, name: "michel"}</code>
+<code>];</code>
+<code></code>
+<code class="show"></code>
+<code class="show"></code>
+<code class="show"></code>
+<code class="show"></code>
+<code class="show"></code>
 				</div>
 			</div>
 		</div>
@@ -73,6 +115,21 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="jquery.junky.js"></script>
 	<script>
+
+		var json = {
+			aa: "aa"
+			, bb: "bb"
+			, cc: "cc"
+			, dd: "dd"
+			, ee: "ee"
+		};
+		console.log($J.excepts(json, ["bb", "cc"]));
+
+		var jsonize1 = "  ?=&id=some&name=one&age=20&sex=male  ";
+		var jsonize2 = "{ id=some, name=one, age=20, sex=male }";
+		console.log($J.jsonize(jsonize1, "&", "="));
+		console.log($J.jsonize(jsonize2, ",", "="));
+
 		$(function(){
 			$("#lastIndex").click(function(){
 				alert($J.lastIndex());
@@ -85,25 +142,11 @@
 				, {age: 13, name: "michel"}
 			];
 
-			console.log(JSON.stringify(arr));
-			console.log(JSON.stringify($J.sort(arr, "age")));
-			console.log(JSON.stringify($J.sort(arr, "age", "desc")));
-			console.log(JSON.stringify($J.sort(arr, "name")));
-			console.log(JSON.stringify($J.sort(arr, "name", "desc")));
-
-			var json = {
-				aa: "aa"
-				, bb: "bb"
-				, cc: "cc"
-				, dd: "dd"
-				, ee: "ee"
-			};
-			console.log($J.excepts(json, ["bb", "cc"]));
-
-			var jsonize1 = "  ?=&id=some&name=one&age=20&sex=male  ";
-			var jsonize2 = "{ id=some, name=one, age=20, sex=male }";
-			console.log($J.jsonize(jsonize1, "&", "="));
-			console.log($J.jsonize(jsonize2, ",", "="));
+			$("code.show").eq(0).text("console.log(JSON.stringify(arr)); //" + JSON.stringify(arr));
+			$("code.show").eq(1).text("console.log(JSON.stringify($J.sort(arr, 'age'))); //" + JSON.stringify($J.sort(arr, "age")));
+			$("code.show").eq(2).text("console.log(JSON.stringify($J.sort(arr, 'age', 'desc'))); //" + JSON.stringify($J.sort(arr, "age", "desc")));
+			$("code.show").eq(3).text("console.log(JSON.stringify($J.sort(arr, 'name'))); //" + JSON.stringify($J.sort(arr, "name")));
+			$("code.show").eq(4).text("console.log(JSON.stringify($J.sort(arr, 'name', 'desc'))); //" + JSON.stringify($J.sort(arr, "name", "desc")));
 		});
 	</script>
 </body>
