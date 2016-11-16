@@ -67,18 +67,61 @@ String.prototype.isCriminalMinor = function(){
 	return yyyy - year > 14 ? (yyyy - year === 14 ? (mm < month ? true : (mm === month ? (dd > date ? true : false) : false)) : false) : true;
 }
 
-/*
-* 문서 내에서 z-index가 가장 높은 값 + 1을 반환
-*/
-var maxIndex = function(){
-	var result = 0;
+var $J = {
+	/*
+	* 문서 내에서 z-index가 가장 높은 값 + 1을 반환
+	*/
+	lastIndex: function(){
+		var result = 0;
 
-	$("*").each(function(){
-		var zIndex = $(this).css("z-index") === "auto" ? 1 : parseInt($(this).css('z-index'));
-		if(zIndex > result){
-			result = zIndex;
+		$("*").each(function(){
+			var zIndex = $(this).css("z-index") === "auto" ? 1 : parseInt($(this).css('z-index'));
+			if(zIndex > result){
+				result = zIndex;
+			}
+		});
+
+		return result + 1;
+	} //end: lastIndex: function(){
+
+	/*
+	* 배열내 json객체를 지정된 key명으로 정/역방향 정렬한다.
+	*/
+	, sort: function(arr, key, order){
+		return arr.sort(function(a, b){
+			return ["desc", "dsc"].indexOf(order) === -1 ? (a[key] < b[key] ? - 1 : a[key] > b[key] ? 1 : 0) : (a[key] > b[key] ? - 1 : a[key] < b[key] ? 1 : 0);
+		});
+	} //end: , sort: function(arr, key, order){
+
+	/*
+	* json 객체를 arr에 해당하는 요소를 제외하고 return한다.
+	*/
+	, excepts: function(json, arr){
+		for(var key in json){
+			if(arr.indexOf(key) !== -1){
+				delete json[key];
+			}
 		}
-	});
+		return json;
+	} //end: , excepts: function(json, arr){
 
-	return result + 1;
-}; //end: maxIndex: function(){
+	/*
+	* url/map 패턴의 문자열을 json형태로 parsing한다.
+	* separator는 첫번째 구분자
+	* decouple은 key와 value로 나눌 구분자
+	* 첫번째 물음표, 모든 {(left brace), }(right brace) 기호는 제거된다.
+	*/
+	, jsonize: function(obj, separator, decouple){
+		var json = {};
+
+		var arr = $.trim(obj).replace(/^[\?]/, "").replace(/{/gi, "").replace(/}/gi, "").split(separator || ",");
+		for(var i = 0; i < arr.length; i++){
+			var pair = arr[i].split(decouple || "=");
+			if(pair.length === 2 && $.trim(pair[0]) !== ""){
+				json[$.trim(pair[0])] = $.trim(pair[1]);
+			}
+		}
+
+		return json;
+	} //end: , jsonize: function(obj, separator, decouple){
+}; //end: var $J = {

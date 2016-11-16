@@ -27,29 +27,44 @@
 		.tab4x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
 		.tab5x:before {content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";}
 
-		.maxIndex {width: 100px; height: 100px; top: 50px; left: 50px;}
+		.lastIndex {position: relative; float: left; width: 100px; height: 100px;}
+		.lastIndex:nth-child(odd) {background: silver;}
+		.lastIndex:nth-child(even) {background: gray;}
 	</style>
 </head>
-<body style="height: 300%;">
+<body>
+	<div>
+		<div class="panel panel-default" style="height: 290px;">
+			<div class="panel-heading">
+				Example 1. $J.lastIndex()
+			</div>
+			<div class="panel-body">
+				<div>
+				</div>
+				<div>
+					<button type="button" id="lastIndex" class="btn btn-default">get lastIndex</button>
+				</div>
+				<div style="position: relative; top: 20px;">
+					<div class="lastIndex" style="background: red; position: fixed; z-index: 9999; left: 30px; top: 130px;">Z9999</div>
+					<div class="lastIndex" style="background: green; position: absolute; z-index: 500000; left: 0px; top: 40px;">Z500000</div>
+					<div class="lastIndex" style="background: blue; position: fixed; z-index: 100; left: 45px; top: 170px;">Z100</div>
+					<div class="lastIndex" style="background: orange; position: absolute; z-index: 1; left: 40px; top: 30px;">Z1</div>
+					<div class="lastIndex">nomal1</div>
+					<div class="lastIndex">nomal2</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Example 1. maxIndex()
+				Example 2. $J.sort(arr, key, order)
 			</div>
 			<div class="panel-body">
-				<div style="position: relative;">
-					<div class="maxIndex" style="background: red; position: fixed; z-index: 9999;">Z9999</div>
-					<div class="maxIndex">nomal1</div>
-					<div class="maxIndex" style="background: green; position: absolute; z-index: 500000;">Z500000</div>
-					<div class="maxIndex">nomal2</div>
-					<div class="maxIndex" style="background: blue; position: fixed; z-index: 100;">Z100</div>
-					<div class="maxIndex">nomal3</div>
-					<div class="maxIndex" style="background: yellow; position: absolute; z-index: 1;">Z1</div>
-					<div class="maxIndex">nomal4</div>
-					<div class="maxIndex" style="background: gray; position: absolute; z-index: 999;">Z999</div>
-					<div class="maxIndex">nomal5</div>
+				<div>
+					temp
 				</div>
-				<button type="button" id="maxIndex" class="btn btn-default" onclick="alert(maxIndex());">get maxIndex</button>
 			</div>
 		</div>
 	</div>
@@ -59,6 +74,36 @@
 	<script src="jquery.junky.js"></script>
 	<script>
 		$(function(){
+			$("#lastIndex").click(function(){
+				alert($J.lastIndex());
+			});
+
+			var arr = [
+				{age: 30, name: "jordan"}
+				, {age: 10, name: "bob"}
+				, {age: 25, name: "alice"}
+				, {age: 13, name: "michel"}
+			];
+
+			console.log(JSON.stringify(arr));
+			console.log(JSON.stringify($J.sort(arr, "age")));
+			console.log(JSON.stringify($J.sort(arr, "age", "desc")));
+			console.log(JSON.stringify($J.sort(arr, "name")));
+			console.log(JSON.stringify($J.sort(arr, "name", "desc")));
+
+			var json = {
+				aa: "aa"
+				, bb: "bb"
+				, cc: "cc"
+				, dd: "dd"
+				, ee: "ee"
+			};
+			console.log($J.excepts(json, ["bb", "cc"]));
+
+			var jsonize1 = "  ?=&id=some&name=one&age=20&sex=male  ";
+			var jsonize2 = "{ id=some, name=one, age=20, sex=male }";
+			console.log($J.jsonize(jsonize1, "&", "="));
+			console.log($J.jsonize(jsonize2, ",", "="));
 		});
 	</script>
 </body>
