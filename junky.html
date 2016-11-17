@@ -46,7 +46,7 @@
 				<div>
 <code>$(function(){</code>
 <code class="tab1x">$("#lastIndex").click(function(){</code>
-<code class="tab2x">alert($J.lastIndex());</code>
+<code class="tab2x">alert(zIndex());</code>
 <code class="tab1x">});</code>
 <code>})</code>
 				</div>
@@ -127,12 +127,12 @@
 
 		var jsonize1 = "  ?=&id=some&name=one&age=20&sex=male  ";
 		var jsonize2 = "{ id=some, name=one, age=20, sex=male }";
-		console.log($J.jsonize(jsonize1, "&", "="));
-		console.log($J.jsonize(jsonize2, ",", "="));
+		console.log(jsonize1.jsonize("&", "="));
+		console.log(jsonize2.jsonize(",", "="));
 
 		$(function(){
 			$("#lastIndex").click(function(){
-				alert($J.lastIndex());
+				alert(zIndex());
 			});
 
 			var arr = [
