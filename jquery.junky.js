@@ -160,7 +160,7 @@ var $J = {
 				continue;
 			}
 
-			str += key + defaults.couple + json[key] + (i + 1 === keys.length ? "" : defaults.separator));
+			str += key + defaults.couple + json[key] + (i + 1 === keys.length ? "" : defaults.separator);
 		}
 
 		return str;
