@@ -53,6 +53,10 @@ String.prototype.cap = function(){
 	return this.charAt(0).toUpperCase() + this.slice(1);
 } //end: String.prototype.cap = function(){
 
+var cap = function(str){
+	str.cap();
+}
+
 /*
 * 문자열에 3자리마다 comma를 추가한다.
 */
@@ -60,12 +64,20 @@ String.prototype.comma = function(){
 	return this.replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 } //end: String.prototype.comma = function(){
 
+var comma = function(str){
+	str.comma();
+} //end: var comma = function(str){
+
 /*
 * 문자열에서 comma를 제거한다.
 */
 String.prototype.strip = function(){
 	return this.replace(/[^\d]+/g, "");
 } //end: String.prototype.strip = function(){
+
+var strip = function(str){
+	str.strip();
+}
 
 /*
 * 만 나이 14세를 체크함.
@@ -83,6 +95,10 @@ String.prototype.isCriminalMinor = function(){
 
 	return yyyy - year > 14 ? (yyyy - year === 14 ? (mm < month ? true : (mm === month ? (dd > date ? true : false) : false)) : false) : true;
 } //end: String.prototype.isCriminalMinor = function(){
+
+var isCriminalMinor = function(str){
+	str.isCriminalMinor();
+}
 
 /*
 * url/map 패턴의 문자열을 json형태로 parsing한다.
@@ -103,6 +119,10 @@ String.prototype.jsonize = function(separator, decouple){
 
 	return json;
 } //end: String.prototype.jsonize = function(separator, decouple){
+
+var jsonize = function(str, separator, decouple){
+	str.jsonize(separator, decouple);
+}
 
 /*
 * jquery를 사용할 때, Object를 prototype을 이용해서 개발할 경우 에러가 발생하므로
