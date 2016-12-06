@@ -54,7 +54,7 @@ String.prototype.cap = function(){
 } //end: String.prototype.cap = function(){
 
 var cap = function(str){
-	str.cap();
+	return str.cap();
 }
 
 /*
@@ -65,7 +65,7 @@ String.prototype.comma = function(){
 } //end: String.prototype.comma = function(){
 
 var comma = function(str){
-	str.comma();
+	return str.comma();
 } //end: var comma = function(str){
 
 /*
@@ -76,7 +76,7 @@ String.prototype.strip = function(){
 } //end: String.prototype.strip = function(){
 
 var strip = function(str){
-	str.strip();
+	return str.strip();
 }
 
 /*
@@ -97,7 +97,7 @@ String.prototype.isCriminalMinor = function(){
 } //end: String.prototype.isCriminalMinor = function(){
 
 var isCriminalMinor = function(str){
-	str.isCriminalMinor();
+	return str.isCriminalMinor();
 }
 
 /*
@@ -121,7 +121,7 @@ String.prototype.jsonize = function(separator, decouple){
 } //end: String.prototype.jsonize = function(separator, decouple){
 
 var jsonize = function(str, separator, decouple){
-	str.jsonize(separator, decouple);
+	return str.jsonize(separator, decouple);
 }
 
 /*
